@@ -1,3 +1,17 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [GoToDateDialog.cs](./CS/DXApplication5/AgendViewComponent/GoToDateDialog.cs)
+* [ListViewControl.cs](./CS/DXApplication5/AgendViewComponent/ListViewControl.cs) (VB: [ListViewControl.vb](./VB/DXApplication5/AgendViewComponent/ListViewControl.vb))
+* [ListViewDataGenerator.cs](./CS/DXApplication5/AgendViewComponent/ListViewDataGenerator.cs) (VB: [ListViewDataGenerator.vb](./VB/DXApplication5/AgendViewComponent/ListViewDataGenerator.vb))
+* [ListViewHelper.cs](./CS/DXApplication5/AgendViewComponent/ListViewHelper.cs) (VB: [ListViewHelper.vb](./VB/DXApplication5/AgendViewComponent/ListViewHelper.vb))
+* [ListViewMenuBuilder.cs](./CS/DXApplication5/AgendViewComponent/ListViewMenuBuilder.cs) (VB: [ListViewMenuBuilder.vb](./VB/DXApplication5/AgendViewComponent/ListViewMenuBuilder.vb))
+* [DataHelper.cs](./CS/DXApplication5/Data/DataHelper.cs)
+* [Form1.cs](./CS/DXApplication5/Form1.cs) (VB: [Form1.vb](./VB/DXApplication5/Form1.vb))
+* [CustomSchedulerControl.cs](./CS/DXApplication5/ISearchControlClient Implementation/CustomSchedulerControl.cs) (VB: [CustomSchedulerControl.vb](./VB/DXApplication5/ISearchControlClient Implementation/CustomSchedulerControl.vb))
+* [SchedulerSearchProvider.cs](./CS/DXApplication5/ISearchControlClient Implementation/SchedulerSearchProvider.cs) (VB: [SchedulerSearchProvider.vb](./VB/DXApplication5/ISearchControlClient Implementation/SchedulerSearchProvider.vb))
+* [Program.cs](./CS/DXApplication5/Program.cs)
+<!-- default file list end -->
 # How to implement SearchResultsView for the scheduler (similar to ListView in Outlook)  
 
 
