@@ -7,12 +7,15 @@ Imports DevExpress.Utils
 Imports DevExpress.Data.Filtering
 
 Namespace DXApplication5
-	Public Class CustomSchedulerControl
-		Inherits SchedulerControl
-		Implements ISearchControlClient
-		#Region "ISearchControlClient Members"
+    Public Class CustomSchedulerControl
+        Inherits SchedulerControl
+        Implements ISearchControlClient
+#Region "ISearchControlClient Members"
 
         Public Sub ApplyFindFilter(ByVal searchInfo As SearchInfoBase) Implements ISearchControlClient.ApplyFindFilter
+            If searchInfo Is Nothing Then
+                Return
+            End If
             Dim si As SchedulerSearchInfo = TryCast(searchInfo, SchedulerSearchInfo)
             Dim filterCondition As FilterCondition = si.FilterCondition
             Dim searchtext As String = si.SearchText
@@ -26,11 +29,11 @@ Namespace DXApplication5
             Me.Storage.Appointments.Filter = filterCriteria.ToString()
         End Sub
 
-		Private Sub ResetFilter()
-			If Me.Storage IsNot Nothing Then
-				Me.Storage.Appointments.Filter = Nothing
-			End If
-		End Sub
+        Private Sub ResetFilter()
+            If Me.Storage IsNot Nothing Then
+                Me.Storage.Appointments.Filter = Nothing
+            End If
+        End Sub
         Private Function PrepareFilter(ByVal searchString As String, ByVal condition As FilterCondition) As CriteriaOperator
             Select Case condition
                 Case FilterCondition.Contains
@@ -53,7 +56,7 @@ Namespace DXApplication5
         Public Function CreateSearchProvider() As SearchControlProviderBase Implements ISearchControlClient.CreateSearchProvider
             Return New SchedulerSearchProvider()
         End Function
-		Private srchControl As ISearchControl
+        Private srchControl As ISearchControl
         Public ReadOnly Property IsAttachedToSearchControl() As Boolean Implements ISearchControlClient.IsAttachedToSearchControl
             Get
                 Return srchControl IsNot Nothing
@@ -68,6 +71,6 @@ Namespace DXApplication5
             srchControl = searchControl
         End Sub
 
-		#End Region
-	End Class
+#End Region
+    End Class
 End Namespace

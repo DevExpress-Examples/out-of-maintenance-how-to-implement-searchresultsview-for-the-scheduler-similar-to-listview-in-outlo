@@ -10,11 +10,13 @@ namespace DXApplication5 {
         #region ISearchControlClient Members
 
         public void ApplyFindFilter(SearchInfoBase searchInfo) {
+            if (searchInfo == null)
+                return;
             SchedulerSearchInfo si = searchInfo as SchedulerSearchInfo;
             FilterCondition filterCondition = si.FilterCondition;
             string searchtext = si.SearchText;
 
-            if(searchtext == null) {
+            if (searchtext == null) {
                 ResetFilter();
                 return;
             }
@@ -23,12 +25,12 @@ namespace DXApplication5 {
             this.Storage.Appointments.Filter = filterCriteria.ToString();
         }
 
-        private void ResetFilter(){
+        private void ResetFilter() {
             if (this.Storage != null)
                 this.Storage.Appointments.Filter = null;
         }
         CriteriaOperator PrepareFilter(string searchString, FilterCondition condition) {
-            switch(condition) {
+            switch (condition) {
                 case FilterCondition.Contains:
                     return GroupOperator.Or(new FunctionOperator(FunctionOperatorType.Contains, "Subject", searchString),
                         new FunctionOperator(FunctionOperatorType.Contains, "Location", searchString));
@@ -49,7 +51,7 @@ namespace DXApplication5 {
             }
 
         }
-    
+
 
         public SearchControlProviderBase CreateSearchProvider() {
             return new SchedulerSearchProvider();
@@ -62,12 +64,12 @@ namespace DXApplication5 {
         }
 
         public void SetSearchControl(ISearchControl searchControl) {
-          
-            if(srchControl == searchControl)
+
+            if (srchControl == searchControl)
                 return;
             ResetFilter();
             srchControl = searchControl;
-          
+
         }
 
         #endregion
